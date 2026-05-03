@@ -1,9 +1,9 @@
 {
   "replace": false,
   "values": [
-    "simplecables76:energy_cable",
-    "simplecables76:copper_cable",
-    "simplecables76:iron_cable",
-    "simplecables76:gold_cable"
+    "nextondynamics:energy_cable",
+    "nextondynamics:copper_cable",
+    "nextondynamics:iron_cable",
+    "nextondynamics:gold_cable"
   ]
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "nextondynamics:block/energy_cable_core",
+  "textures": {
+    "particle": "nextondynamics:block/energy_cable/iron",
+    "cable": "nextondynamics:block/energy_cable/iron"
+  }
+}

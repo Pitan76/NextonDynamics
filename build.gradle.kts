@@ -38,7 +38,7 @@ loom {
     splitEnvironmentSourceSets()
 
     mods {
-        register("simplecables76") {
+        register("nextondynamics") {
             sourceSet("main")
             sourceSet("client")
         }
@@ -54,7 +54,6 @@ dependencies {
     minecraft("com.mojang:minecraft:${project.property("minecraft_version")}")
     mappings(loom.officialMojangMappings())
     modImplementation("net.fabricmc:fabric-loader:${project.property("loader_version")}")
-    modImplementation("net.fabricmc:fabric-language-kotlin:${project.property("kotlin_loader_version")}")
 
     modImplementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
     modImplementation("net.pitan76:mcpitanlib-fabric-${project.property("mcpitanlib_version")}")
@@ -89,7 +88,6 @@ tasks.processResources {
             "version" to project.version,
             "minecraft_version" to project.property("minecraft_version") as String,
             "loader_version" to project.property("loader_version") as String,
-            "kotlin_loader_version" to project.property("kotlin_loader_version") as String
         )
     }
 }
@@ -156,7 +154,6 @@ if (System.getenv("CURSEFORGE_TOKEN") != null) {
             relations(closureOf<CurseRelation> {
                 requiredDependency("fabric-api")
                 requiredDependency("mcpitanlibarch")
-                requiredDependency("fabric-language-kotlin")
             })
         })
     }
@@ -165,7 +162,7 @@ if (System.getenv("CURSEFORGE_TOKEN") != null) {
 if (System.getenv("MODRINTH_TOKEN") != null) {
     modrinth {
         token.set(System.getenv("MODRINTH_TOKEN"))
-        projectId.set("simplecables76")
+        projectId.set("nextondynamics")
         versionNumber.set(project.property("mod_version") as String + "-fabric")
 
         if (project.property("tr_energy_version") as String == "2.3.0") {
@@ -196,7 +193,6 @@ if (System.getenv("MODRINTH_TOKEN") != null) {
         dependencies {
             required.project("P7dR8mSH") // Fabric API
             required.project("uNRoUnGT")
-            required.project("fabric-language-kotlin")
         }
     }
 }

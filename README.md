@@ -1,13 +1,13 @@
-# Simple Cables (English)
+# Nexton Dynamics (English)
 This minecraft mod adds cables for transmitting energy in FabricMC.
+Forked from Simple Cables (by the same original author)
 
-- CurseForge: https://www.curseforge.com/minecraft/mc-mods/simplecables76
-- Modrinth: https://modrinth.com/mod/simplecables76
+[//]: # (- CurseForge: https://www.curseforge.com/minecraft/mc-mods/nexton-dynamics)
+[//]: # (- Modrinth: https://modrinth.com/mod/nexton-dynamics)
 
 ## Libraries
 - Fabric API
 - MCPitanLib
-- Fabric Language Kotlin
 - Reborn Energy API (included internally)
 
 ## Blocks
@@ -19,7 +19,7 @@ This minecraft mod adds cables for transmitting energy in FabricMC.
 Right-clicking on the cable without holding any block items will allow you to check the amount of energy stored in that cable.
 
 ## Configurations
-`config/simplecables76.json` contains the following configuration options
+`config/nexton_industries/dynamics.json` contains the following configuration options
 
 - `rebornEnergyConversionRate` - Energy conversion rate (default: 1.0)
 - `energy.transferRate.energyCable` - Transfer rate for Energy Cable (default: 512)
@@ -29,13 +29,13 @@ Right-clicking on the cable without holding any block items will allow you to ch
 
 The transfer rate values represent the amount of energy transferred per tick.
 
-# Simple Cables (日本語)
+# Nexton Dynamics (日本語)
 エネルギー伝送ケーブル単品を追加するFabricMC用のマイクラModです。
+Simple Cablesからフォークされました （同様のオリジナル作者によるもの）
 
 ## 前提Mod
 - Fabric API
 - MCPitanLib
-- Fabric Language Kotlin
 - Reborn Energy API (内部に埋込済み)
 
 ## ブロック
@@ -47,7 +47,7 @@ The transfer rate values represent the amount of energy transferred per tick.
 ブロック系アイテムを所持せずに右クリックすると、そのケーブルに入っているエネルギーを確認できます。
 
 ## 設定
-`config/simplecables76.json`にて、下記の設定項目を変更できます。
+`config/nexton_industries/dynamics.json`にて、下記の設定項目を変更できます。
 
 - `rebornEnergyConversionRate` - エネルギー変換レート (デフォルト: 1.0)
 - `energy.transferRate.energyCable` - エネルギーケーブルの転送速度 (デフォルト: 512)

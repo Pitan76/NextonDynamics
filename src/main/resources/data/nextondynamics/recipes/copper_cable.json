@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "OOO",
+    "###",
+    "OOO"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:copper_ingot"
+    },
+    "O": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "nextondynamics:copper_cable",
+    "count": 8
+  }
+}

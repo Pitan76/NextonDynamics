@@ -117,7 +117,7 @@ if (System.getenv("CURSEFORGE_TOKEN") != null) {
     curseforge {
         apiKey = System.getenv("CURSEFORGE_TOKEN")
         project(closureOf<CurseProject> {
-            id = "1491488"
+            id = "nextondynamics"
             changelog = project.property("changelog") as String + "\nMCPitanLib version: " + (project.property("mcpitanlib_version") as String).split(":")[1]
             releaseType = "release"
 

@@ -6,7 +6,7 @@ import java.io.File;
 
 public class Config {
     private static File configDir;
-    private static final String FILENAME = NextonDynamics.MOD_ID + ".json";
+    private static final String FILENAME = "nexton_industries/dynamics.json";
     private static JsonConfig config = new JsonConfig();
 
     public static File getConfigFile() {

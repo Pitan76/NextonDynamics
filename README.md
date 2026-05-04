@@ -1,5 +1,5 @@
 # Nexton Dynamics (English)
-This minecraft mod adds cables for transmitting energy in FabricMC.
+A module focused on energy and item transportation systems, including cables, pipes, and network logic. It handles the flow and distribution of resources between machines and devices.<br />
 Forked from Simple Cables (by the same original author)
 
 [//]: # (- CurseForge: https://www.curseforge.com/minecraft/mc-mods/nexton-dynamics)

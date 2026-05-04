@@ -12,7 +12,7 @@
     "issues": "https://github.com/PTOM76/NextonDynamics/issues",
     "homepage": "https://curseforge/minecraft/mc-mods/nexton-dynamics"
   },
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/nextondynamics/icon.png",
   "environment": "*",
   "entrypoints": {

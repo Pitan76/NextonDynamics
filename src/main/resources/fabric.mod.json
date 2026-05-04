@@ -3,24 +3,24 @@
   "id": "nextondynamics",
   "version": "${version}",
   "name": "Nexton Dynamics",
-  "description": "Adds new cables for FabricMC",
+  "description": "A module focused on energy and item transportation systems, including cables, pipes, and network logic. It handles the flow and distribution of resources between machines and devices.",
   "authors": [
     "Pitan"
   ],
   "contact": {
-    "sources": "https://github.com/PTOM76/NextonDynamics",
-    "issues": "https://github.com/PTOM76/NextonDynamics/issues",
+    "sources": "https://github.com/Pitan76/NextonDynamics",
+    "issues": "https://github.com/Pitan76/NextonDynamics/issues",
     "homepage": "https://curseforge/minecraft/mc-mods/nexton-dynamics"
   },
   "license": "MIT",
-  "icon": "assets/nexton/icon.png",
+  "icon": "assets/nextondynamics/icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "net.pitan76.nexton.dynamics.client.NextonDynamicsClient"
-    ],
     "main": [
       "net.pitan76.nexton.dynamics.NextonDynamics"
+    ],
+    "client": [
+      "net.pitan76.nexton.dynamics.client.NextonDynamicsClient"
     ]
   },
   "depends": {

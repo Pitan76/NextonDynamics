@@ -7,13 +7,15 @@ import java.io.File;
 public class Config {
     private static File configDir;
     private static final String FILENAME = "nexton_industries/dynamics.json";
-    private static JsonConfig config = new JsonConfig();
+    private static final JsonConfig config = new JsonConfig();
 
     public static File getConfigFile() {
         return new File(configDir, FILENAME);
     }
 
     public static void init(File configDir) {
+        if (!configDir.exists()) configDir.mkdirs();
+
         if (Config.configDir != null) return;
         Config.configDir = configDir;
 

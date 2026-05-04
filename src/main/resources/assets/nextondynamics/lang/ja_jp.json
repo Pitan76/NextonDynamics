@@ -1,7 +1,0 @@
-{
-  "block.nextondynamics.energy_cable": "エネルギーケーブル",
-  "block.nextondynamics.copper_cable": "銅ケーブル",
-  "block.nextondynamics.iron_cable": "鉄ケーブル",
-  "block.nextondynamics.gold_cable": "金ケーブル",
-  "tooltip.nextondynamics.energy_cable": "§b伝達速度: %d E/t"
-}

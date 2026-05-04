@@ -1,0 +1,7 @@
+{
+  "parent": "nexton:block/energy_cable",
+  "textures": {
+    "particle": "nexton:block/energy_cable/copper",
+    "cable": "nexton:block/energy_cable/copper"
+  }
+}

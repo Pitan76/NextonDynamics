@@ -1,0 +1,7 @@
+{
+  "parent": "nexton:block/energy_cable_core",
+  "textures": {
+    "particle": "nexton:block/energy_cable/gold",
+    "cable": "nexton:block/energy_cable/gold"
+  }
+}

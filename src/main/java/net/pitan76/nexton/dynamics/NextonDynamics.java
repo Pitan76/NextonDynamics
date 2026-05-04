@@ -14,6 +14,7 @@ import net.pitan76.nexton.dynamics.item.Items;
 public class NextonDynamics extends ExtendModInitializer {
 
     public static final String MOD_ID = "nextondynamics";
+    public static final String MOD_NAMESPACE = "nexton";
     public static final String MOD_NAME = "Nexton Dynamics";
 
     public static MidohraRegistry registry;
@@ -54,6 +55,6 @@ public class NextonDynamics extends ExtendModInitializer {
     }
 
     public static CompatIdentifier _id(String path) {
-        return CompatIdentifier.of(MOD_ID, path);
+        return CompatIdentifier.of(MOD_NAMESPACE, path);
     }
 }

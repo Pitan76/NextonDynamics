@@ -13,7 +13,7 @@
     "homepage": "https://curseforge/minecraft/mc-mods/nexton-dynamics"
   },
   "license": "MIT",
-  "icon": "assets/nextondynamics/icon.png",
+  "icon": "assets/nexton/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [

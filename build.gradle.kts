@@ -1,11 +1,8 @@
 import com.matthewprenger.cursegradle.CurseProject
 import com.matthewprenger.cursegradle.CurseRelation
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.gradle.kotlin.dsl.closureOf
 
 plugins {
-    kotlin("jvm") version "2.3.20"
     id("fabric-loom") version "1.13-SNAPSHOT"
     id("maven-publish")
     id("com.modrinth.minotaur") version "2.+"
@@ -53,9 +50,9 @@ repositories {
 dependencies {
     minecraft("com.mojang:minecraft:${project.property("minecraft_version")}")
     mappings(loom.officialMojangMappings())
-    modImplementation("net.fabricmc:fabric-loader:${project.property("loader_version")}")
+    modImplementation("net.fabricmc:fabric-loader:${project.property("fabric_loader_version")}")
 
-    modImplementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_api_version")}")
     modImplementation("net.pitan76:mcpitanlib-fabric-${project.property("mcpitanlib_version")}")
 
     // TRのエネルギー用
@@ -80,14 +77,14 @@ dependencies {
 tasks.processResources {
     inputs.property("version", project.version)
     inputs.property("minecraft_version", project.property("minecraft_version"))
-    inputs.property("loader_version", project.property("loader_version"))
+    inputs.property("fabric_loader_version", project.property("fabric_loader_version"))
     filteringCharset = "UTF-8"
 
     filesMatching("fabric.mod.json") {
         expand(
             "version" to project.version,
             "minecraft_version" to project.property("minecraft_version") as String,
-            "loader_version" to project.property("loader_version") as String,
+            "fabric_loader_version" to project.property("fabric_loader_version") as String,
         )
     }
 }
@@ -95,10 +92,6 @@ tasks.processResources {
 tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
     options.release.set(targetJavaVersion)
-}
-
-tasks.withType<KotlinCompile>().configureEach {
-    compilerOptions.jvmTarget.set(JvmTarget.fromTarget(targetJavaVersion.toString()))
 }
 
 tasks.jar {

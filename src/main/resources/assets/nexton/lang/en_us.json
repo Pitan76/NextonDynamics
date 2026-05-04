@@ -1,0 +1,7 @@
+{
+  "block.nexton.energy_cable": "Energy Cable",
+  "block.nexton.copper_cable": "Copper Cable",
+  "block.nexton.iron_cable": "Iron Cable",
+  "block.nexton.gold_cable": "Gold Cable",
+  "tooltip.nexton.energy_cable": "§bTransfer Rate: %d E/t"
+}

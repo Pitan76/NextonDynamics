@@ -217,6 +217,6 @@ public class EnergyCable extends AbstractCable implements CompatWaterloggable {
     public void appendTooltip(ItemAppendTooltipEvent event) {
         super.appendTooltip(event);
         var style = new CompatStyle().withColor(CompatFormatting.AQUA);
-        event.addTooltip(TextComponent.translatable("tooltip.nextondynamics.energy_cable", speed).setStyle(style));
+        event.addTooltip(TextComponent.translatable("tooltip.nexton.energy_cable", speed).setStyle(style));
     }
 }

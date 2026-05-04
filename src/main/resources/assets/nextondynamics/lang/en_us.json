@@ -1,7 +1,0 @@
-{
-  "block.nextondynamics.energy_cable": "Energy Cable",
-  "block.nextondynamics.copper_cable": "Copper Cable",
-  "block.nextondynamics.iron_cable": "Iron Cable",
-  "block.nextondynamics.gold_cable": "Gold Cable",
-  "tooltip.nextondynamics.energy_cable": "§bTransfer Rate: %d E/t"
-}

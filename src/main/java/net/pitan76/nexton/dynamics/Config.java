@@ -1,4 +1,4 @@
-package net.pitan76.nextondynamics;
+package net.pitan76.nexton.dynamics;
 
 import net.pitan76.easyapi.FileControl;
 import net.pitan76.easyapi.config.JsonConfig;

@@ -1,8 +1,8 @@
-package net.pitan76.nextondynamics.client;
+package net.pitan76.nexton.dynamics.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.pitan76.mcpitanlib.api.client.registry.CompatRegistryClient;
-import net.pitan76.nextondynamics.block.Blocks;
+import net.pitan76.nexton.dynamics.block.Blocks;
 
 public class NextonDynamicsClient implements ClientModInitializer {
 

@@ -1,12 +1,12 @@
-package net.pitan76.nextondynamics.block;
+package net.pitan76.nexton.dynamics.block;
 
 import net.pitan76.mcpitanlib.api.block.v2.CompatibleBlockSettings;
 import net.pitan76.mcpitanlib.api.event.block.TileCreateEvent;
 import net.pitan76.mcpitanlib.api.tile.CompatBlockEntity;
 import net.pitan76.mcpitanlib.core.serialization.CompatMapCodec;
 import net.pitan76.mcpitanlib.core.serialization.codecs.CompatBlockMapCodecUtil;
-import net.pitan76.nextondynamics.Config;
-import net.pitan76.nextondynamics.block.entity.CopperCableBlockEntity;
+import net.pitan76.nexton.dynamics.Config;
+import net.pitan76.nexton.dynamics.block.entity.CopperCableBlockEntity;
 
 public class CopperCable extends EnergyCable {
 

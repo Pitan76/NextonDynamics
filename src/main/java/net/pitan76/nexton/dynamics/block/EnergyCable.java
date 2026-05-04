@@ -1,4 +1,4 @@
-package net.pitan76.nextondynamics.block;
+package net.pitan76.nexton.dynamics.block;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.pitan76.mcpitanlib.api.block.CompatBlockRenderType;
@@ -24,11 +24,11 @@ import net.pitan76.mcpitanlib.midohra.util.math.BlockPos;
 import net.pitan76.mcpitanlib.midohra.util.math.Direction;
 import net.pitan76.mcpitanlib.midohra.util.shape.VoxelShape;
 import net.pitan76.mcpitanlib.midohra.world.World;
-import net.pitan76.nextondynamics.CableNetworkManager;
-import net.pitan76.nextondynamics.Config;
-import net.pitan76.nextondynamics.block.entity.AbstractEnergyBlockEntity;
-import net.pitan76.nextondynamics.block.entity.EnergyCableBlockEntity;
-import net.pitan76.nextondynamics.compat.RebornEnergyRegister;
+import net.pitan76.nexton.dynamics.CableNetworkManager;
+import net.pitan76.nexton.dynamics.Config;
+import net.pitan76.nexton.dynamics.block.entity.AbstractEnergyBlockEntity;
+import net.pitan76.nexton.dynamics.block.entity.EnergyCableBlockEntity;
+import net.pitan76.nexton.dynamics.compat.RebornEnergyRegister;
 import org.jetbrains.annotations.Nullable;
 
 public class EnergyCable extends AbstractCable implements CompatWaterloggable {

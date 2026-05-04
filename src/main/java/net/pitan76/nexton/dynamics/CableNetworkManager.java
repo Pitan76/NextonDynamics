@@ -1,4 +1,4 @@
-package net.pitan76.nextondynamics;
+package net.pitan76.nexton.dynamics;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.pitan76.mcpitanlib.api.util.BlockEntityUtil;
@@ -6,9 +6,13 @@ import net.pitan76.mcpitanlib.core.datafixer.Pair;
 import net.pitan76.mcpitanlib.midohra.util.math.BlockPos;
 import net.pitan76.mcpitanlib.midohra.util.math.Direction;
 import net.pitan76.mcpitanlib.midohra.world.World;
-import net.pitan76.nextondynamics.block.entity.AbstractEnergyBlockEntity;
-import net.pitan76.nextondynamics.block.entity.EnergyCableBlockEntity;
-import net.pitan76.nextondynamics.compat.*;
+import net.pitan76.nexton.dynamics.block.entity.AbstractEnergyBlockEntity;
+import net.pitan76.nexton.dynamics.block.entity.EnergyCableBlockEntity;
+import net.pitan76.nexton.dynamics.compat.EnergyStorageWrapper;
+import net.pitan76.nexton.dynamics.compat.IEnergyStorage;
+import net.pitan76.nexton.dynamics.compat.RebornEnergyRegister;
+import net.pitan76.nexton.dynamics.compat.TREnergyStorage;
+import net.pitan76.nexton.dynamics.compat.*;
 import team.reborn.energy.api.EnergyStorage;
 
 import java.util.*;

@@ -1,4 +1,4 @@
-package net.pitan76.nextondynamics.block;
+package net.pitan76.nexton.dynamics.block;
 
 import net.pitan76.mcpitanlib.api.block.ExtendBlockEntityProvider;
 import net.pitan76.mcpitanlib.api.block.v3.CompatBlock;

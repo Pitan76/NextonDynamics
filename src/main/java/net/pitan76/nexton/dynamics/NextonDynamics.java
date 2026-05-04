@@ -1,4 +1,4 @@
-package net.pitan76.nextondynamics;
+package net.pitan76.nexton.dynamics;
 
 import net.pitan76.mcpitanlib.api.event.v0.EventRegistry;
 import net.pitan76.mcpitanlib.api.util.CompatIdentifier;
@@ -6,10 +6,10 @@ import net.pitan76.mcpitanlib.api.util.PlatformUtil;
 import net.pitan76.mcpitanlib.fabric.ExtendModInitializer;
 import net.pitan76.mcpitanlib.midohra.registry.MidohraRegistry;
 import net.pitan76.mcpitanlib.midohra.world.World;
-import net.pitan76.nextondynamics.block.Blocks;
-import net.pitan76.nextondynamics.block.entity.BlockEntities;
-import net.pitan76.nextondynamics.compat.RebornEnergyRegister;
-import net.pitan76.nextondynamics.item.Items;
+import net.pitan76.nexton.dynamics.block.Blocks;
+import net.pitan76.nexton.dynamics.block.entity.BlockEntities;
+import net.pitan76.nexton.dynamics.compat.RebornEnergyRegister;
+import net.pitan76.nexton.dynamics.item.Items;
 
 public class NextonDynamics extends ExtendModInitializer {
 

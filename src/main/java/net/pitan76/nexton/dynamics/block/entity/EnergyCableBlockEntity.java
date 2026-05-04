@@ -1,4 +1,4 @@
-package net.pitan76.nextondynamics.block.entity;
+package net.pitan76.nexton.dynamics.block.entity;
 
 import net.pitan76.mcpitanlib.api.event.block.TileCreateEvent;
 import net.pitan76.mcpitanlib.api.event.nbt.ReadNbtArgs;
@@ -7,8 +7,8 @@ import net.pitan76.mcpitanlib.api.event.tile.TileTickEvent;
 import net.pitan76.mcpitanlib.api.tile.ExtendBlockEntityTicker;
 import net.pitan76.mcpitanlib.core.datafixer.Pair;
 import net.pitan76.mcpitanlib.midohra.block.entity.BlockEntityTypeWrapper;
-import net.pitan76.nextondynamics.CableNetworkManager;
-import net.pitan76.nextondynamics.Config;
+import net.pitan76.nexton.dynamics.CableNetworkManager;
+import net.pitan76.nexton.dynamics.Config;
 import java.util.*;
 
 public class EnergyCableBlockEntity extends AbstractEnergyBlockEntity implements ExtendBlockEntityTicker<EnergyCableBlockEntity> {

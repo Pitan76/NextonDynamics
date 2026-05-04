@@ -1,4 +1,4 @@
-package net.pitan76.nextondynamics.compat;
+package net.pitan76.nexton.dynamics.compat;
 
 public interface IEnergyStorage {
     long getMaxOutput();

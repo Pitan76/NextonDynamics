@@ -1,13 +1,13 @@
-package net.pitan76.nextondynamics.block.entity;
+package net.pitan76.nexton.dynamics.block.entity;
 
 import net.pitan76.mcpitanlib.api.tile.BlockEntityTypeBuilder;
 import net.pitan76.mcpitanlib.api.tile.CompatBlockEntity;
 import net.pitan76.mcpitanlib.midohra.block.SupplierBlockWrapper;
 import net.pitan76.mcpitanlib.midohra.block.entity.TypedBlockEntityTypeWrapper;
-import net.pitan76.nextondynamics.NextonDynamics;
-import net.pitan76.nextondynamics.block.Blocks;
+import net.pitan76.nexton.dynamics.NextonDynamics;
+import net.pitan76.nexton.dynamics.block.Blocks;
 
-import static net.pitan76.nextondynamics.NextonDynamics.registry;
+import static net.pitan76.nexton.dynamics.NextonDynamics.registry;
 
 public class BlockEntities {
     public static TypedBlockEntityTypeWrapper<EnergyCableBlockEntity> ENERGY_CABLE;

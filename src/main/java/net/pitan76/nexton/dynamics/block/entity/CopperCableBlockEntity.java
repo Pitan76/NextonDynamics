@@ -1,7 +1,7 @@
-package net.pitan76.nextondynamics.block.entity;
+package net.pitan76.nexton.dynamics.block.entity;
 
 import net.pitan76.mcpitanlib.api.event.block.TileCreateEvent;
-import net.pitan76.nextondynamics.Config;
+import net.pitan76.nexton.dynamics.Config;
 
 public class CopperCableBlockEntity extends EnergyCableBlockEntity {
 

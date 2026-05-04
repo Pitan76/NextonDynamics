@@ -17,10 +17,10 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "net.pitan76.nextondynamics.client.NextonDynamicsClient"
+      "net.pitan76.nexton.dynamics.client.NextonDynamicsClient"
     ],
     "main": [
-      "net.pitan76.nextondynamics.NextonDynamics"
+      "net.pitan76.nexton.dynamics.NextonDynamics"
     ]
   },
   "depends": {

@@ -1,4 +1,4 @@
-package net.pitan76.nextondynamics.block.entity;
+package net.pitan76.nexton.dynamics.block.entity;
 
 import net.pitan76.mcpitanlib.api.event.block.TileCreateEvent;
 import net.pitan76.mcpitanlib.api.event.nbt.ReadNbtArgs;
@@ -6,7 +6,7 @@ import net.pitan76.mcpitanlib.api.event.nbt.WriteNbtArgs;
 import net.pitan76.mcpitanlib.api.tile.CompatBlockEntity;
 import net.pitan76.mcpitanlib.api.util.nbt.v2.NbtRWUtil;
 import net.pitan76.mcpitanlib.midohra.block.entity.BlockEntityTypeWrapper;
-import net.pitan76.nextondynamics.compat.IEnergyStorage;
+import net.pitan76.nexton.dynamics.compat.IEnergyStorage;
 
 public abstract class AbstractEnergyBlockEntity extends CompatBlockEntity {
 

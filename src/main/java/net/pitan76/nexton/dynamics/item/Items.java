@@ -1,12 +1,12 @@
-package net.pitan76.nextondynamics.item;
+package net.pitan76.nexton.dynamics.item;
 
 import net.pitan76.mcpitanlib.api.item.v2.CompatibleItemSettings;
 import net.pitan76.mcpitanlib.midohra.item.ItemGroups;
 import net.pitan76.mcpitanlib.midohra.item.ItemWrapper;
-import net.pitan76.nextondynamics.block.Blocks;
+import net.pitan76.nexton.dynamics.block.Blocks;
 
-import static net.pitan76.nextondynamics.NextonDynamics._id;
-import static net.pitan76.nextondynamics.NextonDynamics.registry;
+import static net.pitan76.nexton.dynamics.NextonDynamics._id;
+import static net.pitan76.nexton.dynamics.NextonDynamics.registry;
 
 public class Items {
     public static ItemWrapper ENERGY_CABLE;

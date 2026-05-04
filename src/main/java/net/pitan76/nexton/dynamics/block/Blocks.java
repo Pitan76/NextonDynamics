@@ -1,12 +1,12 @@
-package net.pitan76.nextondynamics.block;
+package net.pitan76.nexton.dynamics.block;
 
 import net.pitan76.mcpitanlib.api.block.CompatibleMaterial;
 import net.pitan76.mcpitanlib.api.block.v2.CompatibleBlockSettings;
 import net.pitan76.mcpitanlib.midohra.block.TypedBlockWrapper;
-import net.pitan76.nextondynamics.Config;
+import net.pitan76.nexton.dynamics.Config;
 
-import static net.pitan76.nextondynamics.NextonDynamics._id;
-import static net.pitan76.nextondynamics.NextonDynamics.registry;
+import static net.pitan76.nexton.dynamics.NextonDynamics._id;
+import static net.pitan76.nexton.dynamics.NextonDynamics.registry;
 
 public class Blocks {
     public static TypedBlockWrapper<EnergyCable> ENERGY_CABLE;

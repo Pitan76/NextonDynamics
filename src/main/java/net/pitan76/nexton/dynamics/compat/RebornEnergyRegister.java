@@ -1,9 +1,9 @@
-package net.pitan76.nextondynamics.compat;
+package net.pitan76.nexton.dynamics.compat;
 
 import net.pitan76.mcpitanlib.api.lookup.block.BlockApiLookupWithDirection;
 import net.pitan76.mcpitanlib.midohra.block.entity.BlockEntityTypeWrapper;
-import net.pitan76.nextondynamics.block.entity.AbstractEnergyBlockEntity;
-import net.pitan76.nextondynamics.block.entity.BlockEntities;
+import net.pitan76.nexton.dynamics.block.entity.AbstractEnergyBlockEntity;
+import net.pitan76.nexton.dynamics.block.entity.BlockEntities;
 import team.reborn.energy.api.EnergyStorage;
 
 public class RebornEnergyRegister {

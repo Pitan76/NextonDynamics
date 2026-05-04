@@ -1,10 +1,10 @@
-package net.pitan76.nextondynamics.compat;
+package net.pitan76.nexton.dynamics.compat;
 
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.fabricmc.fabric.api.transfer.v1.transaction.TransactionContext;
 import net.fabricmc.fabric.api.transfer.v1.transaction.base.SnapshotParticipant;
-import net.pitan76.nextondynamics.Config;
-import net.pitan76.nextondynamics.block.entity.AbstractEnergyBlockEntity;
+import net.pitan76.nexton.dynamics.Config;
+import net.pitan76.nexton.dynamics.block.entity.AbstractEnergyBlockEntity;
 import team.reborn.energy.api.EnergyStorage;
 
 public class TREnergyStorage extends SnapshotParticipant<Long> implements EnergyStorage, IEnergyStorage {

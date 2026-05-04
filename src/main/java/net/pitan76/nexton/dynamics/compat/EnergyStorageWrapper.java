@@ -1,4 +1,4 @@
-package net.pitan76.nextondynamics.compat;
+package net.pitan76.nexton.dynamics.compat;
 
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import team.reborn.energy.api.EnergyStorage;

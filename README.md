@@ -1,5 +1,5 @@
 # Nexton Dynamics (English)
-A module focused on energy and item transportation systems, including cables, pipes, and network logic. It handles the flow and distribution of resources between machines and devices.<br />
+A mod focused on energy and item transportation systems, including cables, pipes, and network logic. It handles the flow and distribution of resources between machines and devices.<br />
 Forked from Simple Cables (by the same original author)
 
 [//]: # (- CurseForge: https://www.curseforge.com/minecraft/mc-mods/nexton-dynamics)
@@ -30,7 +30,7 @@ Right-clicking on the cable without holding any block items will allow you to ch
 The transfer rate values represent the amount of energy transferred per tick.
 
 # Nexton Dynamics (日本語)
-エネルギー伝送ケーブル単品を追加するFabricMC用のマイクラModです。
+このmodは、エネルギーやアイテムの輸送システムに焦点を当てたもので、ケーブルやパイプ、ネットワークロジックなどを含みます。機械や装置間のリソースの流れと分配を処理します。<br />
 Simple Cablesからフォークされました （同様のオリジナル作者によるもの）
 
 ## 前提Mod

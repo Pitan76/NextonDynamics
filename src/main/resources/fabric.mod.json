@@ -3,7 +3,7 @@
   "id": "nextondynamics",
   "version": "${version}",
   "name": "Nexton Dynamics",
-  "description": "A module focused on energy and item transportation systems, including cables, pipes, and network logic. It handles the flow and distribution of resources between machines and devices.",
+  "description": "A mod focused on energy and item transportation systems, including cables, pipes, and network logic. It handles the flow and distribution of resources between machines and devices.",
   "authors": [
     "Pitan"
   ],

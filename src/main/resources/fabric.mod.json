@@ -26,6 +26,10 @@
   "depends": {
     "fabricloader": "*",
     "minecraft": "*",
-    "mcpitanlib": ">3.6.7"
+    "mcpitanlib": ">3.6.7",
+    "nextoncore": "*"
+  },
+  "recommends": {
+    "team_reborn_energy": "*"
   }
 }

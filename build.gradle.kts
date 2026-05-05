@@ -54,7 +54,9 @@ dependencies {
 
     modImplementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_api_version")}")
     modImplementation("net.pitan76:mcpitanlib-fabric-${project.property("mcpitanlib_version")}")
-    modImplementation("net.pitan76:nextoncore-fabric:${project.property("mod_version")}-SNAPSHOT")
+    modImplementation("net.pitan76:nextoncore-fabric:${project.property("mod_version")}-SNAPSHOT") {
+        exclude(group = "net.pitan76")
+    }
 
     // TRのエネルギー用
     modImplementation("RebornCore:RebornCore-1.20:5.10.3")

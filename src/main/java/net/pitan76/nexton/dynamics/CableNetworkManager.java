@@ -7,6 +7,7 @@ import net.pitan76.mcpitanlib.midohra.util.math.BlockPos;
 import net.pitan76.mcpitanlib.midohra.util.math.Direction;
 import net.pitan76.mcpitanlib.midohra.world.World;
 import net.pitan76.nexton.core.api.energy.IEnergyStorage;
+import net.pitan76.nexton.core.fabric.compat.RebornEnergyRegister;
 import net.pitan76.nexton.core.fabric.compat.TREnergyStorage;
 import net.pitan76.nexton.dynamics.block.entity.AbstractEnergyBlockEntity;
 import net.pitan76.nexton.dynamics.block.entity.EnergyCableBlockEntity;
@@ -197,7 +198,7 @@ public class CableNetworkManager {
 
                         if (cable.getEnergyStorage() instanceof TREnergyStorage) {
                             EnergyStorage found =
-                                    RebornEnergyRegister.ENERGY_LOOKUP
+                                    RebornEnergyRegister.SIDED
                                             .find(world, neighborPos, dir.getOpposite());
 
                             if (found != null) {
@@ -272,7 +273,7 @@ public class CableNetworkManager {
             IEnergyStorage storage = p.getB();
 
             System.out.println("- " + cable.getMidohraPos().toRaw() + ": " +
-                    storage.getEnergy() + "/" + storage.getMaxEnergy());
+                    storage.getEnergyStored() + "/" + storage.getCapacityEnergy());
         }
 
         System.out.println("Tiles (" + network.tiles.size() + "):");
@@ -281,7 +282,7 @@ public class CableNetworkManager {
             IEnergyStorage storage = p.getB();
 
             System.out.println("- " + BlockEntityUtil.getPos(tile) + ": " +
-                    storage.getEnergy() + "/" + storage.getMaxEnergy());
+                    storage.getEnergyStored() + "/" + storage.getCapacityEnergy());
         }
 
         System.out.println();

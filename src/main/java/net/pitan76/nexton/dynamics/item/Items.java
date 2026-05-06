@@ -9,15 +9,15 @@ import static net.pitan76.nexton.dynamics.NextonDynamics._id;
 import static net.pitan76.nexton.dynamics.NextonDynamics.registry;
 
 public class Items {
-    public static ItemWrapper ENERGY_CABLE;
+//    public static ItemWrapper ENERGY_CABLE;
     public static ItemWrapper COPPER_CABLE;
     public static ItemWrapper IRON_CABLE;
     public static ItemWrapper GOLD_CABLE;
 
     public static void init() {
-        ENERGY_CABLE = registry.registerBlockItem(_id("energy_cable"), Blocks.ENERGY_CABLE,
-            CompatibleItemSettings.of(_id("energy_cable"))
-            .addGroup(ItemGroups.NI_GROUP));
+//        ENERGY_CABLE = registry.registerBlockItem(_id("energy_cable"), Blocks.ENERGY_CABLE,
+//            CompatibleItemSettings.of(_id("energy_cable"))
+//            .addGroup(ItemGroups.NI_GROUP));
 
         COPPER_CABLE = registry.registerBlockItem(_id("copper_cable"), Blocks.COPPER_CABLE,
             CompatibleItemSettings.of(_id("copper_cable"))

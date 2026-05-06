@@ -6,12 +6,15 @@ import net.pitan76.mcpitanlib.api.event.nbt.WriteNbtArgs;
 import net.pitan76.mcpitanlib.api.tile.CompatBlockEntity;
 import net.pitan76.mcpitanlib.api.util.nbt.v2.NbtRWUtil;
 import net.pitan76.mcpitanlib.midohra.block.entity.BlockEntityTypeWrapper;
-import net.pitan76.nexton.dynamics.compat.IEnergyStorage;
+import net.pitan76.nexton.core.api.energy.IEnergyStorage;
+import net.pitan76.nexton.core.api.energy.SimpleEnergyStorage;
 
 public abstract class AbstractEnergyBlockEntity extends CompatBlockEntity {
 
     public AbstractEnergyBlockEntity(BlockEntityTypeWrapper type, TileCreateEvent e) {
         super(type, e);
+        if (!hasEnergyStorage())
+            setEnergyStorage(new SimpleEnergyStorage.Builder().capacity(getMaxEnergy()).maxInput(getMaxInput()).maxOutput(getMaxOutput()).canInsert(canInput()).canExtract(canOutput()).build());
     }
 
     public abstract long getMaxEnergy();

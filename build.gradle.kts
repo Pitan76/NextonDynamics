@@ -72,9 +72,9 @@ dependencies {
 //    if (project.property("tr_energy_version") as String >= "5.0.0") {
 //        api("teamreborn:energy:${project.property("tr_energy_version")}")
 //    } else {
-    modApi("teamreborn:energy:3.0.0")
+    modImplementation("teamreborn:energy:3.0.0")
 //    }
-    include("teamreborn:energy:${project.property("tr_energy_version")}")
+//    include("teamreborn:energy:${project.property("tr_energy_version")}")
 }
 
 tasks.processResources {

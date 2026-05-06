@@ -6,12 +6,12 @@ import net.pitan76.mcpitanlib.core.datafixer.Pair;
 import net.pitan76.mcpitanlib.midohra.util.math.BlockPos;
 import net.pitan76.mcpitanlib.midohra.util.math.Direction;
 import net.pitan76.mcpitanlib.midohra.world.World;
+import net.pitan76.nexton.core.api.energy.IEnergyStorage;
+import net.pitan76.nexton.core.fabric.compat.TREnergyStorage;
 import net.pitan76.nexton.dynamics.block.entity.AbstractEnergyBlockEntity;
 import net.pitan76.nexton.dynamics.block.entity.EnergyCableBlockEntity;
 import net.pitan76.nexton.dynamics.compat.EnergyStorageWrapper;
-import net.pitan76.nexton.dynamics.compat.IEnergyStorage;
 import net.pitan76.nexton.dynamics.compat.RebornEnergyRegister;
-import net.pitan76.nexton.dynamics.compat.TREnergyStorage;
 import net.pitan76.nexton.dynamics.compat.*;
 import team.reborn.energy.api.EnergyStorage;
 
@@ -28,8 +28,8 @@ public class CableNetworkManager {
 
     public static class CableNetwork {
         public UUID id;
-        public Set<Pair<EnergyCableBlockEntity, IEnergyStorage>> cables = new HashSet<>();
-        public Set<Pair<BlockEntity, IEnergyStorage>> tiles = new HashSet<>();
+        public Set<Pair<EnergyCableBlockEntity, IEnergyStorage>> cables;
+        public Set<Pair<BlockEntity, IEnergyStorage>> tiles;
 
         public CableNetwork(UUID id,
                             Set<Pair<EnergyCableBlockEntity, IEnergyStorage>> cables,
@@ -46,7 +46,7 @@ public class CableNetworkManager {
             List<Pair<BlockEntity, IEnergyStorage>> providers = new ArrayList<>();
             for (Pair<BlockEntity, IEnergyStorage> p : tiles) {
                 IEnergyStorage s = p.getB();
-                if (s.getEnergy() > 0 && s.canOutput() && s.getMaxOutput() > 0) {
+                if (s.getEnergyStored() > 0 && s.canExtractEnergy() && s.getMaxOutputEnergy() > 0) {
                     providers.add(p);
                 }
             }
@@ -57,15 +57,15 @@ public class CableNetworkManager {
                 long totalCapacity = 0;
                 for (Pair<EnergyCableBlockEntity, IEnergyStorage> c : cables) {
                     IEnergyStorage s = c.getB();
-                    totalCapacity += (s.getMaxEnergy() - s.getEnergy());
+                    totalCapacity += (s.getCapacityEnergy() - s.getEnergyStored());
                 }
 
                 if (totalCapacity <= 0) break;
 
-                long takeAmount = Math.min(storage.getEnergy(), totalCapacity);
+                long takeAmount = Math.min(storage.getEnergyStored(), totalCapacity);
                 if (takeAmount <= 0) continue;
 
-                long extracted = storage.extract(takeAmount);
+                long extracted = storage.extractEnergy(takeAmount);
                 if (extracted <= 0) continue;
 
                 long remaining = extracted;
@@ -74,10 +74,10 @@ public class CableNetworkManager {
                     if (remaining <= 0) break;
 
                     IEnergyStorage cableStorage = c.getB();
-                    long space = cableStorage.getMaxEnergy() - cableStorage.getEnergy();
+                    long space = cableStorage.getCapacityEnergy() - cableStorage.getEnergyStored();
                     long give = Math.min(space, remaining);
 
-                    cableStorage.setEnergy(cableStorage.getEnergy() + give);
+                    cableStorage.setEnergyStored(cableStorage.getEnergyStored() + give);
                     remaining -= give;
                 }
             }
@@ -86,7 +86,7 @@ public class CableNetworkManager {
             List<Pair<BlockEntity, IEnergyStorage>> consumers = new ArrayList<>();
             for (Pair<BlockEntity, IEnergyStorage> p : tiles) {
                 IEnergyStorage s = p.getB();
-                if (s.getEnergy() < s.getMaxEnergy() && s.canInput() && s.getMaxInput() > 0) {
+                if (s.getEnergyStored() < s.getCapacityEnergy() && s.canInsertEnergy() && s.getMaxInputEnergy() > 0) {
                     consumers.add(p);
                 }
             }
@@ -94,22 +94,21 @@ public class CableNetworkManager {
             for (Pair<BlockEntity, IEnergyStorage> p : consumers) {
                 IEnergyStorage storage = p.getB();
 
-                long capacity = storage.getMaxEnergy() - storage.getEnergy();
+                long capacity = storage.getUsableCapacity() - storage.getEnergyStored();
                 if (capacity <= 0) continue;
 
                 long available = 0;
                 for (Pair<EnergyCableBlockEntity, IEnergyStorage> c : cables) {
                     EnergyCableBlockEntity cable = c.getA();
                     IEnergyStorage cableStorage = c.getB();
-                    available += Math.min(cableStorage.getEnergy(), cable.getMaxOutput());
+                    available += Math.min(cableStorage.getEnergyStored(), cable.getMaxOutput());
                 }
 
                 if (available <= 0) continue;
 
                 long pushAmount = Math.min(capacity, available);
-                if (pushAmount <= 0) continue;
 
-                long inserted = storage.insert(pushAmount);
+                long inserted = storage.insertEnergy(pushAmount);
                 if (inserted <= 0) continue;
 
                 long remaining = inserted;
@@ -120,9 +119,9 @@ public class CableNetworkManager {
                     EnergyCableBlockEntity cable = c.getA();
                     IEnergyStorage cableStorage = c.getB();
 
-                    long take = Math.min(Math.min(cableStorage.getEnergy(), cable.getMaxOutput()), remaining);
+                    long take = Math.min(Math.min(cableStorage.getEnergyStored(), cable.getMaxOutput()), remaining);
                     if (take > 0) {
-                        cableStorage.setEnergy(cableStorage.getEnergy() - take);
+                        cableStorage.setEnergyStored(cableStorage.getEnergyStored() - take);
                         remaining -= take;
                     }
                 }
@@ -172,7 +171,7 @@ public class CableNetworkManager {
             if (tile instanceof EnergyCableBlockEntity cable) {
 
                 if (cable.getEnergyStorage() == null) {
-                    cable.setEnergyStorage(new TREnergyStorage(cable));
+                    cable.setEnergyStorage(new TREnergyStorage(cable.energyStorage));
                 }
 
                 cables.add(new Pair<>(cable, cable.getEnergyStorage()));

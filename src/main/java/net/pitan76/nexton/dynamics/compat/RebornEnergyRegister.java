@@ -13,7 +13,7 @@ public class RebornEnergyRegister {
     public static void init() {
         System.out.println("Registering Reborn Energy Storage for Energy Cable");
 
-        for (BlockEntityTypeWrapper wrapper2 : new BlockEntityTypeWrapper[]{BlockEntities.ENERGY_CABLE, BlockEntities.COPPER_CABLE, BlockEntities.IRON_CABLE, BlockEntities.GOLD_CABLE}) {
+        for (BlockEntityTypeWrapper wrapper2 : new BlockEntityTypeWrapper[]{BlockEntities.COPPER_CABLE, BlockEntities.IRON_CABLE, BlockEntities.GOLD_CABLE}) {
                 ENERGY_LOOKUP.registerForBlockEntityWrapperM((wrapper, dir) -> {
                     if (wrapper.instanceOf(AbstractEnergyBlockEntity.class)) {
                         AbstractEnergyBlockEntity blockEntity = wrapper.getCompatBlockEntity(AbstractEnergyBlockEntity.class);

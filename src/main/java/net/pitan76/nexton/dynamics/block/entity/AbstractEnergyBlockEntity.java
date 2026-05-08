@@ -8,15 +8,18 @@ import net.pitan76.nexton.core.api.energy.IEnergyStorage;
 import net.pitan76.nexton.core.api.energy.SimpleEnergyStorage;
 
 public abstract class AbstractEnergyBlockEntity extends MachineBlockEntity implements EnergyStorageProvider {
-    public final IEnergyStorage energyStorage;
+    public IEnergyStorage energyStorage = null;
 
     public AbstractEnergyBlockEntity(BlockEntityTypeWrapper type, TileCreateEvent e) {
         super(type.get(), e);
-        energyStorage = new SimpleEnergyStorage.Builder().capacity(getUsableCapacity()).maxInput(getMaxInputEnergy()).maxOutput(getMaxOutputEnergy()).canInsert(canInsertEnergy()).canExtract(canExtractEnergy()).build();
     }
 
     @Override
     public IEnergyStorage getEnergyStorage() {
+        if (energyStorage == null) {
+            energyStorage = new SimpleEnergyStorage.Builder().capacity(getUsableCapacity()).maxInput(getMaxInputEnergy()).maxOutput(getMaxOutputEnergy()).canInsert(canInsertEnergy()).canExtract(canExtractEnergy()).build();
+        }
+
         return energyStorage;
     }
 

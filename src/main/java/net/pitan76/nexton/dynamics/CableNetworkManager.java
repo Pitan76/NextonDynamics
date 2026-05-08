@@ -7,14 +7,8 @@ import net.pitan76.mcpitanlib.midohra.util.math.BlockPos;
 import net.pitan76.mcpitanlib.midohra.util.math.Direction;
 import net.pitan76.mcpitanlib.midohra.world.World;
 import net.pitan76.nexton.core.api.energy.IEnergyStorage;
-import net.pitan76.nexton.core.fabric.compat.RebornEnergyRegister;
-import net.pitan76.nexton.core.fabric.compat.TREnergyStorage;
-import net.pitan76.nexton.dynamics.block.entity.AbstractEnergyBlockEntity;
+import net.pitan76.nexton.core.api.util.EnergyUtil;
 import net.pitan76.nexton.dynamics.block.entity.EnergyCableBlockEntity;
-import net.pitan76.nexton.dynamics.compat.EnergyStorageWrapper;
-import net.pitan76.nexton.dynamics.compat.RebornEnergyRegister;
-import net.pitan76.nexton.dynamics.compat.*;
-import team.reborn.energy.api.EnergyStorage;
 
 import java.util.*;
 
@@ -102,7 +96,7 @@ public class CableNetworkManager {
                 for (Pair<EnergyCableBlockEntity, IEnergyStorage> c : cables) {
                     EnergyCableBlockEntity cable = c.getA();
                     IEnergyStorage cableStorage = c.getB();
-                    available += Math.min(cableStorage.getEnergyStored(), cable.getMaxOutput());
+                    available += Math.min(cableStorage.getEnergyStored(), cable.getMaxOutputEnergy());
                 }
 
                 if (available <= 0) continue;
@@ -120,7 +114,7 @@ public class CableNetworkManager {
                     EnergyCableBlockEntity cable = c.getA();
                     IEnergyStorage cableStorage = c.getB();
 
-                    long take = Math.min(Math.min(cableStorage.getEnergyStored(), cable.getMaxOutput()), remaining);
+                    long take = Math.min(Math.min(cableStorage.getEnergyStored(), cable.getMaxOutputEnergy()), remaining);
                     if (take > 0) {
                         cableStorage.setEnergyStored(cableStorage.getEnergyStored() - take);
                         remaining -= take;
@@ -170,11 +164,6 @@ public class CableNetworkManager {
             BlockEntity tile = world.getBlockEntity(currentPos).get();
 
             if (tile instanceof EnergyCableBlockEntity cable) {
-
-                if (cable.getEnergyStorage() == null) {
-                    cable.setEnergyStorage(new TREnergyStorage(cable.energyStorage));
-                }
-
                 cables.add(new Pair<>(cable, cable.getEnergyStorage()));
 
                 for (Direction dir : Direction.values()) {
@@ -186,7 +175,6 @@ public class CableNetworkManager {
                             queue.add(neighborPos);
                         }
                     } else if (neighborTile != null) {
-
                         boolean alreadyAdded = false;
                         for (Pair<BlockEntity, IEnergyStorage> t : tiles) {
                             if (t.getA() == neighborTile) {
@@ -196,19 +184,14 @@ public class CableNetworkManager {
                         }
                         if (alreadyAdded) continue;
 
-                        if (cable.getEnergyStorage() instanceof TREnergyStorage) {
-                            EnergyStorage found =
-                                    RebornEnergyRegister.SIDED
-                                            .find(world, neighborPos, dir.getOpposite());
-
-                            if (found != null) {
-                                tiles.add(new Pair<>(neighborTile, new EnergyStorageWrapper(found)));
-                            }
-                        } else if (neighborTile instanceof AbstractEnergyBlockEntity be) {
-                            if (be.getEnergyStorage() != null) {
-                                tiles.add(new Pair<>(be, be.getEnergyStorage()));
-                            }
+//                        if (cable.getEnergyStorage() instanceof TREnergyStorage) {
+                        IEnergyStorage found = EnergyUtil.getEnergyStorage(world, neighborPos, dir.getOpposite());
+                        if (found != null) {
+                            tiles.add(new Pair<>(neighborTile, found));
                         }
+//                        } else if (neighborTile instanceof AbstractEnergyBlockEntity be) {
+//                            tiles.add(new Pair<>(be, be.getEnergyStorage()));
+//                        }
                     }
                 }
             }

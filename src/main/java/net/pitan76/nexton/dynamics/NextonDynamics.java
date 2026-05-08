@@ -8,7 +8,6 @@ import net.pitan76.mcpitanlib.midohra.registry.MidohraRegistry;
 import net.pitan76.mcpitanlib.midohra.world.World;
 import net.pitan76.nexton.dynamics.block.Blocks;
 import net.pitan76.nexton.dynamics.block.entity.BlockEntities;
-import net.pitan76.nexton.dynamics.compat.RebornEnergyRegister;
 import net.pitan76.nexton.dynamics.item.Items;
 
 public class NextonDynamics extends ExtendModInitializer {
@@ -29,17 +28,9 @@ public class NextonDynamics extends ExtendModInitializer {
 
         Config.init(PlatformUtil.getConfigFolderAsFile());
 
-        registerEnergyStorage();
-
         // Clear cache when world unloads to prevent invalid cache access (rejoin)
         EventRegistry.ServerLifecycle.serverWorldUnload(world ->
                 CableNetworkManager.clearCache(World.of(world)));
-    }
-
-    public static void registerEnergyStorage() {
-        if (PlatformUtil.isModLoaded("team_reborn_energy")) {
-            RebornEnergyRegister.init();
-        }
     }
 
     // ----

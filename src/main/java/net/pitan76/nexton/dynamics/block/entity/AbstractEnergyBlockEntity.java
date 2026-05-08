@@ -1,73 +1,28 @@
 package net.pitan76.nexton.dynamics.block.entity;
 
 import net.pitan76.mcpitanlib.api.event.block.TileCreateEvent;
-import net.pitan76.mcpitanlib.api.event.nbt.ReadNbtArgs;
-import net.pitan76.mcpitanlib.api.event.nbt.WriteNbtArgs;
-import net.pitan76.mcpitanlib.api.util.nbt.v2.NbtRWUtil;
 import net.pitan76.mcpitanlib.midohra.block.entity.BlockEntityTypeWrapper;
 import net.pitan76.nexton.core.api.block.entity.MachineBlockEntity;
+import net.pitan76.nexton.core.api.energy.EnergyStorageProvider;
 import net.pitan76.nexton.core.api.energy.IEnergyStorage;
 import net.pitan76.nexton.core.api.energy.SimpleEnergyStorage;
 
-public abstract class AbstractEnergyBlockEntity extends MachineBlockEntity {
+public abstract class AbstractEnergyBlockEntity extends MachineBlockEntity implements EnergyStorageProvider {
+    public final IEnergyStorage energyStorage;
 
     public AbstractEnergyBlockEntity(BlockEntityTypeWrapper type, TileCreateEvent e) {
         super(type.get(), e);
-        if (!hasEnergyStorage())
-            setEnergyStorage(new SimpleEnergyStorage.Builder().capacity(getUsableCapacity()).maxInput(getMaxInputEnergy()).maxOutput(getMaxOutputEnergy()).canInsert(canInsertEnergy()).canExtract(canExtractEnergy()).build());
-    }
-
-    public long energy = 0;
-
-    @Override
-    public boolean canInsertEnergy() {
-        return true;
+        energyStorage = new SimpleEnergyStorage.Builder().capacity(getUsableCapacity()).maxInput(getMaxInputEnergy()).maxOutput(getMaxOutputEnergy()).canInsert(canInsertEnergy()).canExtract(canExtractEnergy()).build();
     }
 
     @Override
-    public boolean canExtractEnergy() {
-        return true;
-    }
-
-    @Override
-    public long getEnergyStored() {
-        return energy;
-    }
-
-    @Override
-    public void setEnergyStored(long energy) {
-        this.energy = energy;
-    }
-
-    public IEnergyStorage energyStorage = null;
-
-    public void setEnergyStorage(IEnergyStorage energyStorage) {
-        this.energyStorage = energyStorage;
-    }
-
     public IEnergyStorage getEnergyStorage() {
         return energyStorage;
     }
 
-    public boolean hasEnergyStorage() {
-        return this.energyStorage != null;
-    }
-
-    @Override
-    public void writeNbt(WriteNbtArgs args) {
-        super.writeNbt(args);
-        NbtRWUtil.putLong(args, "energy", this.energy);
-    }
-
-    @Override
-    public void readNbt(ReadNbtArgs args) {
-        super.readNbt(args);
-        this.energy = NbtRWUtil.getLongOrDefault(args, "energy", 0);
-    }
-
     public boolean addEnergy(long energy) {
         if (canAddEnergy(energy)) {
-            this.energy += energy;
+            this.setEnergyStored(getEnergyStored() + energy);
             return true;
         }
         return false;
@@ -78,26 +33,26 @@ public abstract class AbstractEnergyBlockEntity extends MachineBlockEntity {
     }
 
     public boolean canAddEnergy(long energy) {
-        return this.getCapacityEnergy() > this.energy + energy && this.energy + energy >= 0;
+        return this.getCapacityEnergy() >= this.getEnergyStored() + energy && this.getEnergyStored() + energy >= 0;
     }
 
-    public long insertEnergy(long amount) {
-        long usableCapacity = this.getUsableCapacity();
-        if (amount > usableCapacity) {
-            this.energy += usableCapacity;
-            return usableCapacity;
-        }
-        this.energy += amount;
-        return amount;
-    }
-
-    public long extractEnergy(long amount) {
-        if (amount > this.energy) {
-            long energy = this.energy;
-            this.energy = 0;
-            return energy;
-        }
-        this.energy -= amount;
-        return amount;
-    }
+//    public long insertEnergy(long amount) {
+//        long usableCapacity = this.getUsableCapacity();
+//        if (amount > usableCapacity) {
+//            this.energy += usableCapacity;
+//            return usableCapacity;
+//        }
+//        this.energy += amount;
+//        return amount;
+//    }
+//
+//    public long extractEnergy(long amount) {
+//        if (amount > this.energy) {
+//            long energy = this.energy;
+//            this.energy = 0;
+//            return energy;
+//        }
+//        this.energy -= amount;
+//        return amount;
+//    }
 }

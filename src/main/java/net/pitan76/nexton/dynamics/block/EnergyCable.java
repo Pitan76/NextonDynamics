@@ -25,7 +25,6 @@ import net.pitan76.mcpitanlib.midohra.util.math.Direction;
 import net.pitan76.mcpitanlib.midohra.util.shape.VoxelShape;
 import net.pitan76.mcpitanlib.midohra.world.World;
 import net.pitan76.nexton.core.api.util.EnergyUtil;
-import net.pitan76.nexton.core.fabric.compat.RebornEnergyRegister;
 import net.pitan76.nexton.dynamics.CableNetworkManager;
 import net.pitan76.nexton.dynamics.Config;
 import net.pitan76.nexton.dynamics.block.entity.AbstractEnergyBlockEntity;
@@ -98,7 +97,7 @@ public class EnergyCable extends AbstractCable implements CompatWaterloggable {
             var blockEntity = blockEntityWrapper.getCompatBlockEntity(AbstractEnergyBlockEntity.class);
 
             if (e.isClient()) return e.success();
-            e.getPlayer().sendMessage(new TextComponent("Energy: " + blockEntity.energy + " / " + blockEntity.getCapacityEnergy()));
+            e.getPlayer().sendMessage(new TextComponent("Energy: " + blockEntity.getEnergyStored() + " / " + blockEntity.getCapacityEnergy()));
             CableNetworkManager.printLog(e.getMidohraWorld(), e.getMidohraPos());
         }
 

@@ -14,27 +14,29 @@ public abstract class AbstractEnergyBlockEntity extends MachineBlockEntity {
     public AbstractEnergyBlockEntity(BlockEntityTypeWrapper type, TileCreateEvent e) {
         super(type.get(), e);
         if (!hasEnergyStorage())
-            setEnergyStorage(new SimpleEnergyStorage.Builder().capacity(getMaxEnergy()).maxInput(getMaxInput()).maxOutput(getMaxOutput()).canInsert(canInput()).canExtract(canOutput()).build());
+            setEnergyStorage(new SimpleEnergyStorage.Builder().capacity(getUsableCapacity()).maxInput(getMaxInputEnergy()).maxOutput(getMaxOutputEnergy()).canInsert(canInsertEnergy()).canExtract(canExtractEnergy()).build());
     }
-
-    public abstract long getMaxEnergy();
-
-    public long getUsableCapacity() {
-        return this.getMaxEnergy() - this.energy;
-    }
-
-    public abstract long getMaxOutput();
-
-    public abstract long getMaxInput();
 
     public long energy = 0;
 
-    public boolean canInput() {
-        return getMaxInput() > 0;
+    @Override
+    public boolean canInsertEnergy() {
+        return true;
     }
 
-    public boolean canOutput() {
-        return getMaxOutput() > 0;
+    @Override
+    public boolean canExtractEnergy() {
+        return true;
+    }
+
+    @Override
+    public long getEnergyStored() {
+        return energy;
+    }
+
+    @Override
+    public void setEnergyStored(long energy) {
+        this.energy = energy;
     }
 
     public IEnergyStorage energyStorage = null;
@@ -76,7 +78,7 @@ public abstract class AbstractEnergyBlockEntity extends MachineBlockEntity {
     }
 
     public boolean canAddEnergy(long energy) {
-        return this.getMaxEnergy() > this.energy + energy && this.energy + energy >= 0;
+        return this.getCapacityEnergy() > this.energy + energy && this.energy + energy >= 0;
     }
 
     public long insertEnergy(long amount) {

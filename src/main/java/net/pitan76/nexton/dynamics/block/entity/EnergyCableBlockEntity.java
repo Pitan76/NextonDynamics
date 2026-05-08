@@ -34,17 +34,17 @@ public class EnergyCableBlockEntity extends AbstractEnergyBlockEntity implements
     public final int speed;
 
     @Override
-    public long getMaxEnergy() {
+    public long getCapacityEnergy() {
         return (long) speed * 4;
     }
 
     @Override
-    public long getMaxOutput() {
+    public long getMaxOutputEnergy() {
         return speed;
     }
 
     @Override
-    public long getMaxInput() {
+    public long getMaxInputEnergy() {
         return speed;
     }
 

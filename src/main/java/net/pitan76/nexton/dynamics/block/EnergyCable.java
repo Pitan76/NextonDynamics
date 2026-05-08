@@ -24,11 +24,11 @@ import net.pitan76.mcpitanlib.midohra.util.math.BlockPos;
 import net.pitan76.mcpitanlib.midohra.util.math.Direction;
 import net.pitan76.mcpitanlib.midohra.util.shape.VoxelShape;
 import net.pitan76.mcpitanlib.midohra.world.World;
+import net.pitan76.nexton.core.fabric.compat.RebornEnergyRegister;
 import net.pitan76.nexton.dynamics.CableNetworkManager;
 import net.pitan76.nexton.dynamics.Config;
 import net.pitan76.nexton.dynamics.block.entity.AbstractEnergyBlockEntity;
 import net.pitan76.nexton.dynamics.block.entity.EnergyCableBlockEntity;
-import net.pitan76.nexton.dynamics.compat.RebornEnergyRegister;
 import org.jetbrains.annotations.Nullable;
 
 public class EnergyCable extends AbstractCable implements CompatWaterloggable {
@@ -97,7 +97,7 @@ public class EnergyCable extends AbstractCable implements CompatWaterloggable {
             var blockEntity = blockEntityWrapper.getCompatBlockEntity(AbstractEnergyBlockEntity.class);
 
             if (e.isClient()) return e.success();
-            e.getPlayer().sendMessage(new TextComponent("Energy: " + blockEntity.energy + " / " + blockEntity.getMaxEnergy()));
+            e.getPlayer().sendMessage(new TextComponent("Energy: " + blockEntity.energy + " / " + blockEntity.getCapacityEnergy()));
             CableNetworkManager.printLog(e.getMidohraWorld(), e.getMidohraPos());
         }
 
@@ -116,7 +116,7 @@ public class EnergyCable extends AbstractCable implements CompatWaterloggable {
             }
 
 //            if (tile.getEnergyStorage() instanceof TREnergyStorage) {
-            var rebornEnergyStorage = RebornEnergyRegister.ENERGY_LOOKUP.find(world, neighborPos, dir.getOpposite());
+            var rebornEnergyStorage = RebornEnergyRegister..find(world, neighborPos, dir.getOpposite());
             if (rebornEnergyStorage != null) {
                 DirectionBoolPropertyUtil.setProperty(world, pos, dir, true);
                 continue;

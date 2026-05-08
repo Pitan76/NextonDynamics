@@ -24,6 +24,7 @@ import net.pitan76.mcpitanlib.midohra.util.math.BlockPos;
 import net.pitan76.mcpitanlib.midohra.util.math.Direction;
 import net.pitan76.mcpitanlib.midohra.util.shape.VoxelShape;
 import net.pitan76.mcpitanlib.midohra.world.World;
+import net.pitan76.nexton.core.api.util.EnergyUtil;
 import net.pitan76.nexton.core.fabric.compat.RebornEnergyRegister;
 import net.pitan76.nexton.dynamics.CableNetworkManager;
 import net.pitan76.nexton.dynamics.Config;
@@ -116,7 +117,7 @@ public class EnergyCable extends AbstractCable implements CompatWaterloggable {
             }
 
 //            if (tile.getEnergyStorage() instanceof TREnergyStorage) {
-            var rebornEnergyStorage = RebornEnergyRegister..find(world, neighborPos, dir.getOpposite());
+            var rebornEnergyStorage = EnergyUtil.getEnergyStorage(world, neighborPos, dir.getOpposite());
             if (rebornEnergyStorage != null) {
                 DirectionBoolPropertyUtil.setProperty(world, pos, dir, true);
                 continue;

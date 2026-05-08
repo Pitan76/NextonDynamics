@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "nexton:energy_cable",
     "nexton:copper_cable",
     "nexton:iron_cable",
     "nexton:gold_cable"

@@ -14,16 +14,18 @@ public class Config {
     }
 
     public static void init(File configDir) {
-        if (!configDir.exists()) configDir.mkdirs();
-
         if (Config.configDir != null) return;
         Config.configDir = configDir;
 
-        if (FileControl.fileExists(getConfigFile()))
-            config.load(getConfigFile());
+        File file = getConfigFile();
+        File parent = file.getParentFile();
+        if (!parent.exists()) parent.mkdirs();
+
+        if (FileControl.fileExists(file))
+            config.load(file);
 
         defaultConfig(); // 既存設定以外をデフォルトに
-        config.save(getConfigFile());
+        config.save(file);
     }
 
     public static boolean reload() {
